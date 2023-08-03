@@ -1,0 +1,58 @@
+ALGORITHM InsertSort card
+BEGIN
+    DECLARE V1: ARRAY_OF INTEGER  ;
+    DECLARE n, newNumber, indexToInsert, x, i, j: INTEGER;
+
+    /** Read the table V1 */
+    WRITE("Enter the length of the array:")
+    READ(n)
+
+    /* Read the table V1 */
+    FOR i FROM 1 TO n DO
+        WRITE("Please enter your", i, "element:")
+        READ(V1[i])
+    END FOR
+
+    /* Writing the table V1 */
+    FOR i FROM 1 TO n DO
+        WRITE(V1[i])
+    END FOR
+/* USING BUBBLE SORT FOR V */
+    FOR i FROM 1 TO n - 1 DO
+        FOR j FROM 1 TO n - i DO
+            IF V1[j] > V1[j + 1] THEN
+                x := V1[j]
+                V1[j] := V1[j + 1]
+                V1[j + 1] := x
+            END IF
+        END FOR
+        WRITE("Your sorted table is ", V1)
+    END FOR
+   /* ASSIGNMENT OF THE INDEX FOR THE NEW NUMBER */
+    FOR x FROM 1 TO 20 DO
+        WRITE("Enter the number to insert:")
+        READ(newNumber)
+
+        indexToInsert := n
+
+        FOR i FROM 1 TO n DO
+            IF newNumber < V1[i] THEN
+                indexToInsert := i
+                BREAK
+            END IF
+        END FOR
+
+        /* Increase the array length and shift elements to the right */
+        n := n + 1
+        FOR i FROM n TO indexToInsert + 1 DO
+            V1[i] := V1[i - 1]
+        END FOR
+        /* INSERTION OF THE NUMBER */
+        V1[indexToInsert] := newNumber
+
+        WRITE("Updated Array:")
+        FOR i FROM 1 TO n DO
+            WRITE(V1[i])
+        END FOR
+    END FOR
+END
