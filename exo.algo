@@ -1,7 +1,7 @@
 ALGORITHM InsertSort card
 BEGIN
     DECLARE V1: ARRAY_OF INTEGER  ;
-    DECLARE n, newNumber, indexToInsert, x, i, j: INTEGER;
+    DECLARE n, newNumber, indexToInsert, x, i, j,current: INTEGER;
 
     /** Read the table V1 */
     WRITE("Enter the length of the array:")
@@ -21,7 +21,7 @@ BEGIN
 
 
     FOR i FROM 2 TO n DO
-        newNumber := V1[i]
+        current := V1[i]
         j := i - 1
         WHILE j >= 1 AND V1[j] > current DO
             V1[j + 1] := V1[j]
