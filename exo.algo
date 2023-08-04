@@ -1,7 +1,7 @@
 ALGORITHM InsertSort card
 BEGIN
     DECLARE V1: ARRAY_OF INTEGER  ;
-    DECLARE n, newNumber, indexToInsert, x, i, j: INTEGER;
+    DECLARE n, newNumber, indexToInsert, x, i, j,current: INTEGER;
 
     /** Read the table V1 */
     WRITE("Enter the length of the array:")
@@ -17,17 +17,21 @@ BEGIN
     FOR i FROM 1 TO n DO
         WRITE(V1[i])
     END FOR
-/* USING BUBBLE SORT FOR V */
-    FOR i FROM 1 TO n - 1 DO
-        FOR j FROM 1 TO n - i DO
-            IF V1[j] > V1[j + 1] THEN
-                x := V1[j]
-                V1[j] := V1[j + 1]
-                V1[j + 1] := x
-            END IF
-        END FOR
-        WRITE("Your sorted table is ", V1)
+/*  
+
+
+    FOR i FROM 2 TO n DO
+        current := V1[i]
+        j := i - 1
+        WHILE j >= 1 AND V1[j] > current DO
+            V1[j + 1] := V1[j]
+            j := j - 1
+        END WHILE
+        V1[j + 1] := current
     END FOR
+
+
+    
    /* ASSIGNMENT OF THE INDEX FOR THE NEW NUMBER */
     FOR x FROM 1 TO 20 DO
         WRITE("Enter the number to insert:")
